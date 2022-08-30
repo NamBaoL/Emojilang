@@ -1,6 +1,6 @@
 file = open("run.txt", encoding='utf-8')
 code = "⬜⬛❓◾◽➡⬆⬇▶❌➕✖➗➿➰⬅♾♊〰⚪🔢🔡🔤🔠🆎⏳".replace(u"\ufe0f", "")
-compile = "import time\nimport math\nimport random\nans = ''\nstack = []\ntabs = 0\n"
+compile = "import time\nimport math\nimport random\nans = ''\nstack = []\n"
 ans = ""
 stack = []
 tabs = 0
@@ -130,6 +130,6 @@ def compiler(data):
 
 for i in file.readlines():
     compiler(i.replace(u"\ufe0f", ""))
-# print(compile)
+print(compile)
 exec(compile)
 # print(stack)
