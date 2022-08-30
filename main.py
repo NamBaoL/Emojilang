@@ -1,5 +1,5 @@
 file = open("run.txt", encoding='utf-8')
-code = "⬜⬛❓◽◾➡⬆⬇▶❌➕✖➗➿➰⬅♾♊〰⚪🔢🔡🔤🔠🆎⏳💬↖".replace(u"\ufe0f", "")
+code = "⬜⬛❓◽◾➡⬆⬇▶❌➕✖➗➿➰⬅♾♊〰⚪🔢🔡🔤🔠🆎⏳".replace(u"\ufe0f", "")
 compile = "import time\nimport math\nimport random\nans = ''\nstack = []\n"
 ans = ""
 stack = []
@@ -8,10 +8,10 @@ loop = 'abcdefghijklmnopqrstuvwxyz'
 ir = 0
 
 
-def text(data, x=1):
+def text(data):
     global compile, tabs
     compile += "\t" * tabs
-    compile += data + ('\n' * x)
+    compile += data + '\n'
 
 
 def compiler(data):
@@ -123,13 +123,9 @@ def compiler(data):
             tabs += 1
         elif j == code[25]:
             text('time.sleep(float(ans))')
-        elif j == code[26]:
-            text('ans += "\'"')
-            ans += "\'"
-        elif j == code[27]:
-            text('ans += "\\"')
-            ans += "\\"
         else:
+            j = '\\\'' if j == '\'' else j
+            j = '\\\\' if j == '\\' else j
             text(f"ans += '{j}'")
             ans += j
 
