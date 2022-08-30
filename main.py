@@ -1,5 +1,5 @@
 file = open("run.txt", encoding='utf-8')
-code = "⬜⬛❓◾◽➡⬆⬇▶❌➕✖➗➿➰⬅♾♊〰⚪🔢🔡🔤🔠🆎⏳".replace(u"\ufe0f", "")
+code = "⬜⬛❓◽◾➡⬆⬇▶❌➕✖➗➿➰⬅♾♊〰⚪🔢🔡🔤🔠🆎⏳💬↖".replace(u"\ufe0f", "")
 compile = "import time\nimport math\nimport random\nans = ''\nstack = []\n"
 ans = ""
 stack = []
@@ -24,7 +24,7 @@ def compiler(data):
         elif j == code[2]:
             text("ans = input()")
         elif j == code[3]:
-            pass
+            break
         elif j == code[4]:
             text("ans = stack[int(ans)]")
             ans = stack[int(ans)]
@@ -123,13 +123,19 @@ def compiler(data):
             tabs += 1
         elif j == code[25]:
             text('time.sleep(float(ans))')
+        elif j == code[26]:
+            text('ans += "\'"')
+            ans += "\'"
+        elif j == code[27]:
+            text('ans += "\\"')
+            ans += "\\"
         else:
             text(f"ans += '{j}'")
             ans += j
 
 
 for i in file.readlines():
-    compiler(i.replace(u"\ufe0f", ""))
-print(compile)
+    compiler(i.replace(u"\ufe0f", "").replace('\n', ''))
+# print(compile)
 exec(compile)
 # print(stack)
