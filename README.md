@@ -1,5 +1,5 @@
 # Emojilang
-A programming language using emojies.  
+A programming language using emojis.  
 # Hello World  
 ```
 Hello World⬜
